@@ -1,3 +1,13 @@
+/**
+ * Author: Trung Hoang
+ * Email: tqhoang.ca@gmail.com
+ * Date: February 26, 2016
+ * Description: Text Field class that extends JTextField and implements FocusListener. Created
+ * 				for implementing multiple textfields with the same functionality. Contains a
+ * 				constructor that initializes JTextField values and class values, and defined
+ * 				focusGained and focusLost methods to be automatically added to TextFields
+ */
+
 package Utils;
 
 import java.awt.Color;
@@ -28,6 +38,8 @@ public class TextField extends JTextField implements FocusListener {
 		DEFAULT_STRING = d;
 		EDIT_STRING = e;
 		addFocusListener(this);
+		
+		//setText(DEFAULT_STRING);
 	}
 	
 	/**
@@ -51,9 +63,11 @@ public class TextField extends JTextField implements FocusListener {
 	public void focusLost(FocusEvent e) {
 		setForeground(INACTIVE);
 		EDIT_STRING = getText();
+		// If the text field is empty, display the default string
 		if (getText().isEmpty()) {
 			setText(DEFAULT_STRING);
 		}
+		// Otherwise, display the edited string
 		else {
 			setText(EDIT_STRING);
 		}
