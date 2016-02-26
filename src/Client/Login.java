@@ -26,11 +26,11 @@ public class Login extends JFrame {
 	private int COLUMNS = 12;
 	private JPanel panel;
 	
-	// User variables
-	public static String USERNAME = "";
-	
 	// Connection variables
-	static int PORT;
+	public static String USERNAME = "";
+	public static String SERVER = "";
+	public static String PORT = "";
+	
 	private TextField username;
 	private TextField server;
 	private TextField port;
@@ -45,15 +45,21 @@ public class Login extends JFrame {
 		setSize(WIDTH, HEIGHT);
 		setVisible(true);
 		
-		// JPanel
-		panel = new JPanel();
-		
 		// Create a text field for the username
 		username = new TextField("Username", USERNAME);
 		username.setColumns(COLUMNS);
+		// Create text field for the server name
+		server = new TextField("Server", SERVER);
+		server.setColumns(COLUMNS);
+		// Create text field for the port
+		port = new TextField("Port", PORT);
+		port.setColumns(COLUMNS / 2);
 		
-		panel.add(username, BorderLayout.CENTER);
-		
+		// Create a JPanel to store text fields, then add the panel to JFrame
+		panel = new JPanel();
+		panel.add(username);
+		panel.add(server);
+		panel.add(port);
 		add(panel);
 	}
 }
