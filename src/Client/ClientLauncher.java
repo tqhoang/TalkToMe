@@ -7,6 +7,8 @@
 
 package Client;
 
+import javax.swing.JFrame;
+
 public class ClientLauncher {
 	/**
 	 * Main entry point of the program. Launches the login to prompt the user for necessary
@@ -14,6 +16,7 @@ public class ClientLauncher {
 	 * @param args - Not used within the program
 	 */
 	public static void main(String[] args) {
-		
+		Login login = new Login();
+		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
