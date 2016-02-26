@@ -6,8 +6,6 @@ import java.awt.event.FocusListener;
 
 import javax.swing.JTextField;
 
-import Client.Login;
-
 @SuppressWarnings("serial")
 public class TextField extends JTextField implements FocusListener {
 	// Default text in the text field when not in focus
