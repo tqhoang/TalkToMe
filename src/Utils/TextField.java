@@ -39,7 +39,10 @@ public class TextField extends JTextField implements FocusListener {
 		EDIT_STRING = e;
 		addFocusListener(this);
 		
-		//setText(DEFAULT_STRING);
+		// Default the text field to look inactive and containing the default string
+		setForeground(INACTIVE);
+		setText(DEFAULT_STRING);
+		setEditable(false);
 	}
 	
 	/**
