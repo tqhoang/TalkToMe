@@ -12,6 +12,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,7 +24,7 @@ public class Login extends JFrame {
 	// Login class UI variables
 	private String TITLE = "TalkToMe - LOGIN";
 	private int WIDTH = 300;
-	private int HEIGHT = 100;
+	private int HEIGHT = 150;
 	private int COLUMNS = 12;
 	private JPanel panel;
 	
@@ -58,6 +59,7 @@ public class Login extends JFrame {
 		gbc.insets = new Insets(5, 5, 5, 5);
 		createGridLayout(panel, gbc);
 		add(panel);
+		pack();
 		setVisible(true);
 	}
 	
@@ -108,13 +110,18 @@ public class Login extends JFrame {
 		
 		// For every label and text field, position and add them to the panel appropriately
 		for (int index = 0; index < labels.length; index++) {
-			gbc.anchor = GridBagConstraints.EAST;
 			gbc.gridx = 0;
+			gbc.anchor = GridBagConstraints.EAST;
 			panel.add(labels[index], gbc);
 			gbc.gridx++;
 			gbc.anchor = GridBagConstraints.WEST;
 			panel.add(textFields[index], gbc);
 			gbc.gridy++;
 		}
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.weightx = 1;
+		JButton login = new JButton();
+		login.setText("Login");
+		panel.add(login, gbc);
 	}
 }
