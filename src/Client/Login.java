@@ -11,6 +11,8 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -118,10 +120,21 @@ public class Login extends JFrame {
 			panel.add(textFields[index], gbc);
 			gbc.gridy++;
 		}
+		
+		// Set new position to be right aligned
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.weightx = 1;
-		JButton login = new JButton();
-		login.setText("Login");
-		panel.add(login, gbc);
+		// Create a new JButton named join that allows access to the specified chatroom
+		JButton join = new JButton();
+		join.setText("Join");
+		join.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				Client client = new Client();
+				client.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			}
+		});
+		panel.add(join, gbc);
 	}
 }
